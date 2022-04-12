@@ -1,19 +1,23 @@
 <script setup>
 import HelloWorld from './components/HelloWorld.vue'
 import TheWelcome from './components/TheWelcome.vue'
+import ClickCounter from './components/ClickCounter.vue'
 </script>
 
 <template>
-  <header>
-    <img alt="Vue logo" class="logo" src="./assets/logo.svg" width="125" height="125" />
-
-    <div class="wrapper">
-      <HelloWorld msg="You did it!" />
-    </div>
-  </header>
-
   <main>
-    <TheWelcome />
+    <div>
+      <h1>How to use text interpolation to load Vue instance's data?</h1>
+      <p>We can use text interpolation in Vue by using the mustache syntax "{ { } }"</p> 
+    </div> 
+    <div>
+      <h1>How to allow reactivity by binding attributes to Vue instance data ? </h1>
+      <p>Idea here is to use the ":" syntax before the attribute this signifies v-bind directive which binds the data to the attribute.</p>
+      <p>We can use the property button to ilustrate the example. The idea here is we want to disable the button dynamically so we use Vue's instance data that resolves the attribute value.</p>
+      <div>
+        <ClickCounter/>
+      </div>
+    </div>
   </main>
 </template>
 
