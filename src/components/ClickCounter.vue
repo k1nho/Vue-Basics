@@ -4,10 +4,17 @@ export default {
 	setup() {
 		const state = reactive({count : 0});
 
+		// state mutation
+		const incrementCount = function(){
+			state.count++;
+		}
+
 		return{
 			state,
+			incrementCount
 		}
 	}
+
 }
 </script>
 
