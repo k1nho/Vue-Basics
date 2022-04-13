@@ -13,7 +13,7 @@ const  state = reactive({
 // An alternative to use primitive types is to use ref, but more importantly it allows us to create a value which we can pass and not lose reactivity
 // which is not the case with reactive
 const num = ref(0);
-
+const bgColor = ref("blue")
 
 function incrementCount(){
 	state.counterState.count++;
@@ -27,17 +27,23 @@ function decrementCount(){
 	
 }
 
-// Computed properties using the Composition API as follows
+// Computed properties using the Composition API as follows (useful when we want to cache results based on reactivity as opposed to methods which will re-render)
 const fruitsMessage = computed(() =>{
 	return state.fruits.length > 0 ? "The fruit market has been replenished" : "No fruits available"
+})
+
+// Style binding
+const decrementButtonStyle = reactive({
+	color: 'white',
+	backgroundColor : 'red'
 })
 
 </script>
 
 <template>
 	<div>
-		<button @click="incrementCount"> Add more fruits</button>
-		<button @click="decrementCount"> Remove fruit</button>
+		<button @click="incrementCount" :style="{backgroundColor : bgColor, color: 'white'}"> Add more fruits</button>
+		<button @click="decrementCount" :style ="decrementButtonStyle"> Remove fruit</button>
 		<button @click="num++">Click ref: {{num}}</button>		
 		<p>{{fruitsMessage}} : {{state.fruits.length}}</p>
 		<li v-for="fruit in state.fruits" :key="fruit">
@@ -49,5 +55,10 @@ const fruitsMessage = computed(() =>{
 </template>
 
 <style>
-	
+.incrementButton{
+	background-color: "blue"
+}	
+.decrementButton{
+	background-color: "red"
+}	
 </style>
