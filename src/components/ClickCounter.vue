@@ -1,10 +1,19 @@
 <script setup>
-import {reactive, ref, computed} from 'vue'
+import { computed, reactive, ref } from 'vue';
 
 const  state = reactive({
 	counterState : {count : 0},
 	fruits : []
 	});
+
+const personInfo  = reactive({
+	name : "Kin",
+	pet : "Rabbit",
+	food : "Shrimp",
+	age : 1000,
+	band : "Ellegarden"
+})
+
 // NOTE : the reactive object is not the same as the proxy. ex) state === {} will be false
 // However calling reactive on the object will be the same as proxy. ex) reactive({}) === state will be true
 
@@ -46,9 +55,17 @@ const decrementButtonStyle = reactive({
 		<button @click="decrementCount" :style ="decrementButtonStyle"> Remove fruit</button>
 		<button @click="num++">Click ref: {{num}}</button>		
 		<p>{{fruitsMessage}} : {{state.fruits.length}}</p>
+		<!--List rendering example -->
 		<li v-for="fruit in state.fruits" :key="fruit">
 			<ul>
 				{{fruit}}
+			</ul>
+		</li>
+		<h1>Rendering objects fields</h1>
+		<!-- List rendering for objects--> 
+		<li v-for="value in personInfo" :key="value.name">
+			<ul>
+				{{value}}	
 			</ul>
 		</li>
 	</div>	
