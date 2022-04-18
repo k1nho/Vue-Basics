@@ -63,9 +63,9 @@ const decrementButtonStyle = reactive({
 		</li>
 		<h1>Rendering objects fields</h1>
 		<!-- List rendering for objects--> 
-		<li v-for="value in personInfo" :key="value.name">
+		<li v-for="(value, key) in personInfo" :key="value.name">
 			<ul>
-				{{value}}	
+				{{key}} : {{value}}	
 			</ul>
 		</li>
 	</div>	
