@@ -14,6 +14,9 @@ const personInfo  = reactive({
 	band : "Ellegarden"
 })
 
+const pokemons = reactive({
+	pokemonList : ["Charizard" , "Squirtle", "Ninetails"]
+})
 // NOTE : the reactive object is not the same as the proxy. ex) state === {} will be false
 // However calling reactive on the object will be the same as proxy. ex) reactive({}) === state will be true
 
@@ -68,6 +71,16 @@ const decrementButtonStyle = reactive({
 				{{key}} : {{value}}	
 			</ul>
 		</li>
+		<!-- Another option is using the template tag to render a block that contains multiple elements -->
+		<h1>Rendering a template block</h1>
+		<ul>
+			<template v-for="pokemon in pokemons.pokemonList" :key="pokemon">
+				<li>
+					<p>The pokemon is {{pokemon}}</p>
+					<p>This is quite wonderful</p>
+				</li>
+			</template>	
+		</ul>
 	</div>	
 </template>
 
