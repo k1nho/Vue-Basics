@@ -4,7 +4,7 @@ import ClickCounter from "./components/ClickCounter.vue";
 // We can get the native DOM  element that call the method with e
 function printCount(e) {
   if (e) {
-    console.log(e.target.name);
+    console.log(e.target.id);
   }
 }
 
@@ -51,22 +51,21 @@ function messageAndEvent(msg, e) {
       <div>
         <h1 class="title">Listening to events in Vue</h1>
         <p>
-          We can use the v-on directive (@ for shorthand) to listen to dom
-          events.
+          We can use the v-on directive
+          <span style="font-weight: bold"> (@ for shorthand) </span>
+          to listen to dom events. In addition, we can do it inline or by
+          invoking a method name. It is important to notice that we have access
+          to the native DOM element that triggers the event as a parameter to
+          the method.
         </p>
-        <p>
-          In addition, we can do it inline or by invoking a method name. It is
-          important to notice that we have access to the native DOM element that
-          triggers the event as a parameter to the method.
-        </p>
-        <p>
+        <p style="margin-bottom: 10px">
           We can call methods in an inline handler rather than biding to the
           name directly which allows us to have parameters to pass, instead of
           just the native event
         </p>
         <div style="display: flex; margin-bottom: 10px">
           <!-- Normal method with just native event-->
-          <button @click="printCount">Count</button>
+          <button id="counter-btn" @click="printCount">Count</button>
           <!-- Inline method handlers to pass params can be done as follows-->
           <button @click="say('hello world')">Hello World</button>
           <!-- Inline method with both native event and a param-->
@@ -79,6 +78,9 @@ function messageAndEvent(msg, e) {
         </div>
       </div>
       <hr />
+      <div>
+        <h1 class="title">Form Input bindings</h1>
+      </div>
       <div>
         <ClickCounter />
       </div>
