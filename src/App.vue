@@ -63,11 +63,22 @@ function messageAndEvent(msg, e) {
           name directly which allows us to have parameters to pass, instead of
           just the native event
         </p>
-        <div style="display: flex; margin-bottom: 10px">
+        <div
+          style="
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            margin-bottom: 10px;
+            gap: 10px;
+          "
+        >
           <!-- Normal method with just native event-->
-          <button id="counter-btn" @click="printCount">Count</button>
+          <button class="button-56" id="counter-btn" @click="printCount">
+            Count
+          </button>
           <!-- Inline method handlers to pass params can be done as follows-->
-          <button @click="say('hello world')">Hello World</button>
+          <button class="button-85" @click="say('hello world')">
+            Hello World
+          </button>
           <!-- Inline method with both native event and a param-->
           <button
             name="param"
@@ -76,8 +87,29 @@ function messageAndEvent(msg, e) {
             Msg and Param
           </button>
         </div>
+        <p>In addition, we can abstract DOM details away from method logic by using event modifiers.
+          <ul><li>
+            prevent: same as preventDefault() use to stop browser from reloading on submit.
+          </li>
+          <li>
+            stop: same as stopPropagation() prevents the propagation of the same event from being called (bubbling to parents or capturing children).
+          </li>
+          <li>
+            self: Only trigger if the event.target is the same as itself and not a child element
+          </li>
+          <li>
+            passive
+          </li>
+          <li>
+            capture
+          </li>
+          <li>
+            once
+          </li>
+          </ul>
+        </p>
       </div>
-      <hr />
+      <hr/>
       <div>
         <h1 class="title">Form Input bindings</h1>
       </div>
@@ -97,6 +129,133 @@ function messageAndEvent(msg, e) {
   padding: 2rem;
 
   font-weight: normal;
+}
+
+/* CSS */
+.button-56 {
+  align-items: center;
+  background-color: #42b8e7;
+  border: 2px solid #111;
+  border-radius: 8px;
+  box-sizing: border-box;
+  color: #111;
+  cursor: pointer;
+  display: flex;
+  font-family: Inter, sans-serif;
+  font-size: 16px;
+  height: 48px;
+  justify-content: center;
+  line-height: 24px;
+  max-width: 100%;
+  padding: 0 25px;
+  position: relative;
+  text-align: center;
+  text-decoration: none;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+}
+
+.button-56:after {
+  background-color: #111;
+  border-radius: 8px;
+  content: "";
+  display: block;
+  height: 48px;
+  left: 0;
+  width: 100%;
+  position: absolute;
+  top: -2px;
+  transform: translate(8px, 8px);
+  transition: transform 0.2s ease-out;
+  z-index: -1;
+}
+
+.button-56:hover:after {
+  transform: translate(0, 0);
+}
+
+.button-56:active {
+  background-color: #42b8e7;
+  outline: 0;
+}
+
+.button-56:hover {
+  outline: 0;
+}
+
+@media (min-width: 768px) {
+  .button-56 {
+    padding: 0 40px;
+  }
+}
+
+/* CSS */
+.button-85 {
+  padding: 0.6em 2em;
+  border: none;
+  outline: none;
+  color: rgb(255, 255, 255);
+  background: #111;
+  cursor: pointer;
+  position: relative;
+  z-index: 0;
+  border-radius: 10px;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+}
+
+.button-85:before {
+  content: "";
+  background: linear-gradient(
+    45deg,
+    #ff0000,
+    #ff7300,
+    #fffb00,
+    #48ff00,
+    #00ffd5,
+    #002bff,
+    #7a00ff,
+    #ff00c8,
+    #ff0000
+  );
+  position: absolute;
+  top: -2px;
+  left: -2px;
+  background-size: 400%;
+  z-index: -1;
+  filter: blur(5px);
+  -webkit-filter: blur(5px);
+  width: calc(100% + 4px);
+  height: calc(100% + 4px);
+  animation: glowing-button-85 20s linear infinite;
+  transition: opacity 0.3s ease-in-out;
+  border-radius: 10px;
+}
+
+@keyframes glowing-button-85 {
+  0% {
+    background-position: 0 0;
+  }
+  50% {
+    background-position: 400% 0;
+  }
+  100% {
+    background-position: 0 0;
+  }
+}
+
+.button-85:after {
+  z-index: -1;
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: #222;
+  left: 0;
+  top: 0;
+  border-radius: 10px;
 }
 
 header {
