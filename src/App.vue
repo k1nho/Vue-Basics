@@ -7,6 +7,19 @@ function printCount(e) {
     console.log(e.target.name);
   }
 }
+
+// Inline handler method that accepts params
+function say(msg) {
+  console.log(msg);
+}
+
+function messageAndEvent(msg, e) {
+  if (e) {
+    console.log(msg + " " + e.target.name);
+  } else {
+    console.log("Only message was delivered");
+  }
+}
 </script>
 
 <template>
@@ -46,10 +59,26 @@ function printCount(e) {
           important to notice that we have access to the native DOM element that
           triggers the event as a parameter to the method.
         </p>
-        <div>
-          <button name="btn-kin" @click="printCount">Console Name</button>
+        <p>
+          We can call methods in an inline handler rather than biding to the
+          name directly which allows us to have parameters to pass, instead of
+          just the native event
+        </p>
+        <div style="display: flex; margin-bottom: 10px">
+          <!-- Normal method with just native event-->
+          <button @click="printCount">Count</button>
+          <!-- Inline method handlers to pass params can be done as follows-->
+          <button @click="say('hello world')">Hello World</button>
+          <!-- Inline method with both native event and a param-->
+          <button
+            name="param"
+            @click="messageAndEvent('Inline handler with event', $event)"
+          >
+            Msg and Param
+          </button>
         </div>
       </div>
+      <hr />
       <div>
         <ClickCounter />
       </div>
