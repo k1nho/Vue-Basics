@@ -89,22 +89,22 @@ function messageAndEvent(msg, e) {
         </div>
         <p>In addition, we can abstract DOM details away from method logic by using event modifiers.
           <ul><li>
-            prevent: same as preventDefault() use to stop browser from reloading on submit.
+            Prevent: same as preventDefault() use to stop browser from reloading on submit.
           </li>
           <li>
-            stop: same as stopPropagation() prevents the propagation of the same event from being called (bubbling to parents or capturing children).
+            Stop: same as stopPropagation() prevents the propagation of the same event from being called (bubbling to parents or capturing children).
           </li>
           <li>
-            self: Only trigger if the event.target is the same as itself and not a child element
+            Self: Only trigger if the event.target is the same as itself and not a child element
           </li>
           <li>
-            passive
+            Passive: Let the default behaviour of the event to happen immediately instead of waiting for the event to complete. It is usually good for improving performance on mobile devices.
           </li>
           <li>
-            capture
+            Capture: Usually used when adding the event listener.
           </li>
           <li>
-            once
+            Once: An event will be triggered at most once.
           </li>
           </ul>
         </p>
