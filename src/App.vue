@@ -87,7 +87,7 @@ function messageAndEvent(msg, e) {
             Msg and Param
           </button>
         </div>
-        <p>In addition, we can abstract DOM details away from method logic by using event modifiers.
+        <p style="margin-bottom: 10px;">In addition, we can abstract DOM details away from method logic by using event modifiers.
           <ul><li>
             Prevent: same as preventDefault() use to stop browser from reloading on submit.
           </li>
@@ -108,6 +108,13 @@ function messageAndEvent(msg, e) {
           </li>
           </ul>
         </p>
+         <p>
+           The last way of handling events is via <span style="font-weight: bold">keys</span> and <span style="font-weight: bold">mouse</span>.
+           For keys, we can use @keyup follow by any of these: <span style="font-weight: bold">enter, tab, delete, esc, space, up, down, left, right.</span>
+           In addition, we can use one of the following modifiers <span style="font-weight:bold"> ctrl, alt, shift, meta</span> to respond only when the key is selected in conjunction to any of the aforementioned
+           For mouse, we can have <span style="font-weight: bold"> left, right, middle.</span> 
+      
+         </p>
       </div>
       <hr/>
       <div>
