@@ -1,17 +1,10 @@
 <script setup>
-import { ref } from "vue";
 import ClickCounter from "./components/ClickCounter.vue";
-const userMsg = ref("");
-const checkedNames = ref([]);
-const binary = ref("one");
-const selectedPokemon=ref("Infernape");
-const options = ref(
-  [
-    {text: "Infernape", value:"Infernape"},
-    {text: "Floatzel", value:"Floatzel"},
-    {text: "Torterra", value:"Torterra"}
-  ]
-)
+import InputCheckbox from "./components/InputCheckbox.vue";
+import InputRadio from "./components/InputRadio.vue";
+import InputSelect from "./components/InputSelect.vue";
+import InputText from "./components/InputText.vue";
+
 // We can get the native DOM  element that call the method with e
 function printCount(e) {
   if (e) {
@@ -132,41 +125,15 @@ function messageAndEvent(msg, e) {
         <h1 class="title">Form Input bindings</h1>
         <p>We can do two way binding using <span style="font-weight: bold;">v-model</span> directive. In addition, v-model can be used with tags such as textarea and select.</p> 
         <hr>
-        <div>
-          <h2>Basic Input Example</h2>
-          <input v-model="userMsg" placeholder="Write Message and See Change">
-          <p>Message is: {{userMsg}}</p>
-        </div>
+        <InputText/> 
+        <hr>
+        <InputCheckbox/> 
         <hr>
         <div>
-          <h2>Basic Checkbox Example</h2>
-          <input type="checkbox" id="kin" value="Kin" v-model="checkedNames">
-          <label for="kin">Kin</label>
-          <input type="checkbox" id="pikachu" value="Pikachu" v-model="checkedNames">
-          <label for="pikachu">Pikachu</label>
-          <input type="checkbox" id="rose" value="Rose" v-model="checkedNames">
-          <label for="rose">Rose</label>
-          <p>Selected Names : {{checkedNames}}</p>
+          <InputRadio/>
         </div>
         <hr>
-        <div>
-          <h2>Basic Radio Example</h2>
-          <input type="radio" id="0" value="zero" v-model="binary">
-          <label for="0" style="margin-right: 10px;">Zero</label>
-          <input type="radio" id="1" value="one" v-model="binary">
-          <label for="1">One</label>
-          <p>Binary is: {{binary}}</p>
-        </div>
-        <hr>
-        <div>
-          <h2>Basic Select Example</h2>
-          <select v-model="selectedPokemon">
-            <option v-for="pokemon in options" :value="pokemon.value">
-            {{pokemon.text}}
-            </option>
-          </select>
-         <p> I choose you! {{selectedPokemon}}</p> 
-        </div>
+        <InputSelect/> 
         <hr>
       </div>
       <div>
