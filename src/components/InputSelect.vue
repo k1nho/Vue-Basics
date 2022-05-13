@@ -1,6 +1,6 @@
 <script setup>
 import { ref } from "vue";
-const selectedPokemon = ref("Infernape");
+const selectedPokemon = ref("");
 const options = ref([
   { text: "Infernape", value: "Infernape" },
   { text: "Floatzel", value: "Floatzel" },
@@ -12,6 +12,7 @@ const options = ref([
   <div>
     <h2>Basic Select Example</h2>
     <select v-model="selectedPokemon">
+      <option disabled value="">Select a Value</option>
       <option v-for="pokemon in options" :value="pokemon.value">
         {{ pokemon.text }}
       </option>
