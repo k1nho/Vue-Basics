@@ -67,14 +67,12 @@ function messageAndEvent(msg, e) {
           name directly which allows us to have parameters to pass, instead of
           just the native event
         </p>
-        <div
-          style="
+        <div style="
             display: grid;
             grid-template-columns: repeat(3, 1fr);
             margin-bottom: 10px;
             gap: 10px;
-          "
-        >
+          ">
           <!-- Normal method with just native event-->
           <button class="button-56" id="counter-btn" @click="printCount">
             Count
@@ -84,25 +82,26 @@ function messageAndEvent(msg, e) {
             Hello World
           </button>
           <!-- Inline method with both native event and a param-->
-          <button
-            name="param"
-            @click="messageAndEvent('Inline handler with event', $event)"
-          >
+          <button name="param" @click="messageAndEvent('Inline handler with event', $event)">
             Msg and Param
           </button>
         </div>
-        <p style="margin-bottom: 10px;">In addition, we can abstract DOM details away from method logic by using event modifiers.
-          <ul><li>
+        <p style="margin-bottom: 10px;">In addition, we can abstract DOM details away from method logic by using event
+          modifiers.
+        <ul>
+          <li>
             Prevent: same as preventDefault() use to stop browser from reloading on submit.
           </li>
           <li>
-            Stop: same as stopPropagation() prevents the propagation of the same event from being called (bubbling to parents or capturing children).
+            Stop: same as stopPropagation() prevents the propagation of the same event from being called (bubbling to
+            parents or capturing children).
           </li>
           <li>
             Self: Only trigger if the event.target is the same as itself and not a child element
           </li>
           <li>
-            Passive: Let the default behaviour of the event to happen immediately instead of waiting for the event to complete. It is usually good for improving performance on mobile devices.
+            Passive: Let the default behaviour of the event to happen immediately instead of waiting for the event to
+            complete. It is usually good for improving performance on mobile devices.
           </li>
           <li>
             Capture: Usually used when adding the event listener.
@@ -110,32 +109,60 @@ function messageAndEvent(msg, e) {
           <li>
             Once: An event will be triggered at most once.
           </li>
-          </ul>
+        </ul>
         </p>
-         <p>
-           The last way of handling events is via <span style="font-weight: bold">keys</span> and <span style="font-weight: bold">mouse</span>.
-           For keys, we can use @keyup follow by any of these: <span style="font-weight: bold">enter, tab, delete, esc, space, up, down, left, right.</span>
-           In addition, we can use one of the following modifiers <span style="font-weight:bold"> ctrl, alt, shift, meta</span> to respond only when the key is selected in conjunction to any of the aforementioned
-           For mouse, we can have <span style="font-weight: bold"> left, right, middle.</span> 
-      
-         </p>
+        <p>
+          The last way of handling events is via <span style="font-weight: bold">keys</span> and <span
+            style="font-weight: bold">mouse</span>.
+          For keys, we can use @keyup follow by any of these: <span style="font-weight: bold">enter, tab, delete, esc,
+            space, up, down, left, right.</span>
+          In addition, we can use one of the following modifiers <span style="font-weight:bold"> ctrl, alt, shift,
+            meta</span> to respond only when the key is selected in conjunction to any of the aforementioned
+          For mouse, we can have <span style="font-weight: bold"> left, right, middle.</span>
+
+        </p>
       </div>
-      <hr/>
+      <hr />
       <div>
         <h1 class="title">Form Input bindings</h1>
-        <p>We can do two way binding using <span style="font-weight: bold;">v-model</span> directive. In addition, v-model can be used with tags such as textarea and select.</p> 
+        <p>We can do two way binding using <span style="font-weight: bold;">v-model</span> directive. In addition,
+          v-model can be used with tags such as textarea and select.</p>
         <hr>
-        <InputText/> 
+        <InputText />
         <hr>
-        <InputCheckbox/> 
-        We can also have a special type of input checkbox in which the value is dynamically binded with <span class="bold">:true-value and :false-value</span>
+        <InputCheckbox />
+        We can also have a special type of input checkbox in which the value is dynamically binded with <span
+          class="bold">:true-value and :false-value</span>
         <hr>
         <div>
-          <InputRadio/>
+          <InputRadio />
         </div>
         <hr>
-        <InputSelect/> 
-        For select we can also add the attribute multiple and we can have the selection bounded to an array of selections.
+        <div>
+          <InputSelect />
+          For select we can also add the attribute multiple and we can have the selection bounded to an array of
+          selections.
+        </div>
+        <hr>
+        <div>
+          <h2>Special Input Bindings</h2>
+          <p>Sometimes we might prefer to have values be dynamically binded rather than statically provided,
+            in that case there are many ways in which Vue allow us to have that possibility as it was demonstrated with
+            the use of true-value and false-value. Since we can have
+            dynamically binded values then we can also allow to have objects as it is the case with the use of select
+            input.</p>
+        </div>
+        <hr>
+        <div>
+          <h2>Form Input Modifiers</h2>
+          <p>Similar to modifiers used for events, we also have modifiers for input forms with three of the most popular ones being: lazy, number, and trim.
+            <ul>
+              <li>lazy: allows to sync the input after change instead of input.</li>
+              <li>number: cast the input automatically to a number type.</li>
+              <li>trim: trims whitespace from the input automatically.</li>
+            </ul>
+          </p>
+        </div>
         <hr>
       </div>
       <div>
@@ -156,9 +183,10 @@ function messageAndEvent(msg, e) {
   font-weight: normal;
 }
 
-.bold{
+.bold {
   font-weight: bold;
 }
+
 /* CSS */
 .button-56 {
   align-items: center;
@@ -236,18 +264,16 @@ function messageAndEvent(msg, e) {
 
 .button-85:before {
   content: "";
-  background: linear-gradient(
-    45deg,
-    #ff0000,
-    #ff7300,
-    #fffb00,
-    #48ff00,
-    #00ffd5,
-    #002bff,
-    #7a00ff,
-    #ff00c8,
-    #ff0000
-  );
+  background: linear-gradient(45deg,
+      #ff0000,
+      #ff7300,
+      #fffb00,
+      #48ff00,
+      #00ffd5,
+      #002bff,
+      #7a00ff,
+      #ff00c8,
+      #ff0000);
   position: absolute;
   top: -2px;
   left: -2px;
@@ -266,9 +292,11 @@ function messageAndEvent(msg, e) {
   0% {
     background-position: 0 0;
   }
+
   50% {
     background-position: 400% 0;
   }
+
   100% {
     background-position: 0 0;
   }
@@ -335,6 +363,7 @@ a,
   .logo {
     margin: 0 2rem 0 0;
   }
+
   .title {
     font-weight: bold;
   }
