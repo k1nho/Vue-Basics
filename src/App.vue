@@ -128,12 +128,14 @@ function messageAndEvent(msg, e) {
         <InputText/> 
         <hr>
         <InputCheckbox/> 
+        We can also have a special type of input checkbox in which the value is dynamically binded with <span class="bold">:true-value and :false-value</span>
         <hr>
         <div>
           <InputRadio/>
         </div>
         <hr>
         <InputSelect/> 
+        For select we can also add the attribute multiple and we can have the selection bounded to an array of selections.
         <hr>
       </div>
       <div>
@@ -154,6 +156,9 @@ function messageAndEvent(msg, e) {
   font-weight: normal;
 }
 
+.bold{
+  font-weight: bold;
+}
 /* CSS */
 .button-56 {
   align-items: center;
